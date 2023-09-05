@@ -11,4 +11,13 @@ router.get("/", async function (req, res, next) {
 	}
 });
 
+router.post("/", async function (req, res, next) {
+	try {
+		res.json(await product.create(req.body));
+	} catch (err) {
+		console.log("Error creating product: ", err.message);
+		next.err;
+	}
+});
+
 module.exports = router;

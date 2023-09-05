@@ -16,6 +16,24 @@ async function getMultiple(page = 1) {
 	};
 }
 
+async function create(product) {
+	const result = await db.query(
+		`INSERT INTO Product 
+		(name, description, brand, image, SKU, category, size, price)
+		VALUES
+		(${product.name}, ${product.description}, ${product.brand}, ${product.image}, ${product.sku}, ${product.category}, ${product.size}. ${product.price})`
+	);
+
+	let message = "Error in creating new product";
+
+	if (result.affectedRows) {
+		message = "New product created successfully";
+	}
+
+	return { message };
+}
+
 module.exports = {
-	getMultiple
+	getMultiple,
+	create
 };
