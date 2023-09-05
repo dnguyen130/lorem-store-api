@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.DB_PORT || 3000;
 require("dotenv").config();
 
 const ProductRouter = require("./routes/product");
@@ -25,6 +25,6 @@ app.use((err, req, res, next) => {
 	return;
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
 	console.log(`Example app listening at http://localhost:${port}`);
 });
