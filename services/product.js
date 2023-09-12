@@ -24,18 +24,11 @@ async function create(product) {
 			VALUES
 			(${product.name}, ${product.description}, ${product.brand}, ${product.image}, ${product.SKU}, ${product.category}, ${product.size}, ${product.price})`
 		);
-		console.log(res);
+		return { result };
 	} catch (err) {
 		console.log("error: ", err);
+		return err;
 	}
-
-	let message = "Error in creating new product";
-
-	if (result.affectedRows) {
-		message = "New product created successfully";
-	}
-
-	return { result };
 }
 
 module.exports = {
