@@ -38,8 +38,8 @@ async function create(product) {
 			VALUES
 			(${product.name}, ${product.description}, ${product.brand}, ${image_url}, ${product.sku}, ${product.category}, ${product.size}. ${product.price})`
 		);
-	} catch {
-		console.log("error", JSON.stringify(err, null, 2));
+	} catch (err) {
+		console.log("error: ", err);
 	}
 
 	let message = "Error in creating new product";
