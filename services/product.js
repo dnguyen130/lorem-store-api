@@ -22,8 +22,9 @@ async function create(product) {
 			`INSERT INTO Product
 			(name, description, brand, image, SKU, category, size, price)
 			VALUES
-			(${product.name}, ${product.description}, ${product.brand}, ${product.image}, ${product.sku}, ${product.category}, ${product.size}. ${product.price})`
+			(${product.name}, ${product.description}, ${product.brand}, ${product.image}, ${product.SKU}, ${product.category}, ${product.size}, ${product.price})`
 		);
+		console.log(res);
 	} catch (err) {
 		console.log("error: ", err);
 	}
