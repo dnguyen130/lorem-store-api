@@ -9,11 +9,12 @@ async function getMultiple(page = 1) {
 	);
 	const data = helper.emptyOrRows(rows);
 	const meta = { page };
+	const listsPerPage = config.listPerPage;
 
 	return {
 		data,
 		meta,
-		listPerPage
+		listsPerPage
 	};
 }
 
