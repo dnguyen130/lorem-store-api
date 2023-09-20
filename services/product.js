@@ -10,11 +10,13 @@ async function getMultiple(page = 1) {
 	const data = helper.emptyOrRows(rows);
 	const meta = { page };
 	const listsPerPage = config.listPerPage;
+	const total = await db.query(`SELECT COUNT(*) FROM Product`);
 
 	return {
 		data,
 		meta,
-		listsPerPage
+		listsPerPage,
+		total
 	};
 }
 
