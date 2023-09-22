@@ -20,6 +20,16 @@ async function getMultiple(page = 1) {
 	};
 }
 
+async function getById(id) {
+	const data = await db.query(
+		`SELECT id, name, description, brand, image, SKU, category, size, price FROM Product WHERE id=${id}`
+	);
+
+	return {
+		data
+	};
+}
+
 async function create(product) {
 	try {
 		const result = await db.query(
@@ -35,5 +45,6 @@ async function create(product) {
 
 module.exports = {
 	getMultiple,
+	getById,
 	create
 };
