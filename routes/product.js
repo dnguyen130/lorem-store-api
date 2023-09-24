@@ -26,7 +26,7 @@ router.post("/", async function (req, res, next) {
 		res.json(await product.create(req.body));
 	} catch (err) {
 		console.log("Error creating product: ", err.message);
-		next.err;
+		next(err);
 	}
 });
 

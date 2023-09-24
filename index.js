@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 require("dotenv").config();
 const cors = require("cors");
 const ProductRouter = require("./routes/product");
+const UserRouter = require("./routes/user");
 
 app.use(express.json());
 app.use(cors());
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/product", ProductRouter);
+app.use("/user", UserRouter);
 
 app.use((err, req, res, next) => {
 	const statusCode = err.statusCode || 500;
