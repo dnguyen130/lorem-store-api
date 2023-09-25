@@ -6,7 +6,7 @@ router.get("/login", async function (req, res, next) {
 	try {
 		res.json(await user.login(req));
 	} catch (err) {
-		console.log("Error logging in", err.message);
+		console.log("Error logging in", err);
 		next(err);
 	}
 });
