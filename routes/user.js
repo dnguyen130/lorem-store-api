@@ -11,7 +11,7 @@ router.get("/login", async function (req, res, next) {
 	}
 });
 
-router.post("/", async function (req, res, next) {
+router.post("/signup", async function (req, res, next) {
 	try {
 		res.json(await user.create(req.body));
 	} catch (err) {

@@ -8,7 +8,7 @@ async function login(user) {
 	);
 	const storedHash = res[0].password;
 	return new Promise((resolve, reject) => {
-		bcrypt.compare(user.body.password, storedHash, function (err, res) {
+		bcrypt.compare(user.body.password, storedHash, function (_err, res) {
 			if (res) {
 				jwt.sign(
 					{ id: user.id },
